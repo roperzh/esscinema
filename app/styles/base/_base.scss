@@ -12,3 +12,7 @@ html {
   border: 2px solid transparent;
   @include border-image(url("../images/multicolor-border.jpg") 30 30 round);
 }
+
+body {
+  background: $athens-grey;
+}
