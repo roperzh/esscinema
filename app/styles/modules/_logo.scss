@@ -1,0 +1,16 @@
+// -------------------------------------------
+//   Logo
+// -------------------------------------------
+
+.logo {
+  @include clearfix();
+
+  .logo-image {
+    display: inline-block;
+    float: left;
+  }
+
+  .logo-text {
+    display: inline-block;
+  }
+}
