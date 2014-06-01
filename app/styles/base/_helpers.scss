@@ -1,0 +1,29 @@
+// -------------------------------------------
+//   Helpers
+//     -> Utility function used across the app
+// -------------------------------------------
+
+/* Advice for old browsers */
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Hidden state */
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/* Clearfix hack */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
