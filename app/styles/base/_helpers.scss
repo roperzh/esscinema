@@ -16,14 +16,3 @@
     display: none !important;
     visibility: hidden;
 }
-
-/* Clearfix hack */
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
-}
