@@ -4,5 +4,12 @@
 // -------------------------------------------
 
 .horizontal-panel {
+  height: 85px;
   background: $white;
+
+  .logo {
+    position: relative;
+    left: 10.6%;
+    top: 24px;
+  }
 }
