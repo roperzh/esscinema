@@ -1,0 +1,27 @@
+// -------------------------------------------
+//   Search Form
+// -------------------------------------------
+
+.search-form {
+  position: relative;
+  top: -9px;
+  left: 25%;
+  display: inline-block;
+  width: 21%;
+  color: $silver;
+
+  input {
+    width: 100%;
+    padding: 4px 17px;
+    border: 1px solid $silver;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 6px;
+    right: 14px;
+    font-size: 20px;
+  }
+}
