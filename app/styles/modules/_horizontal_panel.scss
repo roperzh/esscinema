@@ -12,4 +12,19 @@
     left: 10.6%;
     top: 24px;
   }
+
+  nav {
+    color: $silver;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    top: -12px;
+
+    i {
+      padding: 10px;
+      border: 1px solid $athens-grey;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+  }
 }

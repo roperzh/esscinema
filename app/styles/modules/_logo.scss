@@ -3,6 +3,7 @@
 // -------------------------------------------
 
 .logo {
+  display: inline-block;
   @include clearfix();
 
   .logo-image {
