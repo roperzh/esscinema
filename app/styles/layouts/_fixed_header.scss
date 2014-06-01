@@ -1,0 +1,11 @@
+// -------------------------------------------
+//   Fixed header
+//     -> Header fixed at the top of the page
+// -------------------------------------------
+
+.fixed-header {
+  position: fixed;
+  top: 3px;
+  left: 0;
+  right: 0;
+}
