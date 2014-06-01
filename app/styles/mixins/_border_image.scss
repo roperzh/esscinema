@@ -1,0 +1,11 @@
+// ---------------------------------------------
+//   Border Image Mixin
+//     -> Border image cross-browser compatible
+// ---------------------------------------------
+
+@mixin border-image($attributes) {
+  -moz-border-image:    $attributes;
+  -webkit-border-image: $attributes;
+  -o-border-image:      $attributes;
+  border-image:         $attributes;
+}
