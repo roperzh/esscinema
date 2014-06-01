@@ -8,11 +8,8 @@
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
  }
 
-html {
+body {
   border: 2px solid transparent;
   @include border-image(url("../images/multicolor-border.jpg") 30 30 round);
-}
-
-body {
   background: $athens-grey;
 }
