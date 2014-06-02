@@ -1,0 +1,20 @@
+// -------------------------------------------
+//   Stars
+// -------------------------------------------
+
+.stars {
+  float: left;
+
+  .fa-star {
+    color: $silver;
+
+    &.selected {
+      color: $gold;
+    }
+
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+

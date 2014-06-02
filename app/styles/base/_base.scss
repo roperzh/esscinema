@@ -9,9 +9,6 @@
  }
 
 body {
-  border: 2px solid transparent;
-  border-bottom-width: 0;
-  @include border-image(url("../images/multicolor-border.jpg") 30 30 round);
   background: $athens-grey;
   font-family: 'Open Sans', sans-serif;
 }

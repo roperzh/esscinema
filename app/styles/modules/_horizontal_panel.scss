@@ -32,4 +32,15 @@
       font-size: 20px;
     }
   }
+
+  @include breakpoint(768px) {
+    .search-form {
+      left: 10%;
+      width: 40%;
+    }
+
+    nav {
+      display: none;
+    }
+  }
 }

@@ -1,0 +1,38 @@
+// -------------------------------------------
+//   Result
+// -------------------------------------------
+
+.result {
+  float: left;
+  width: 100%;
+  max-width: 241px;
+  margin: 0 7px 15px 7px;
+  border: 1px solid $silver;
+  border-radius: 5px;
+  background: $white;
+  color: $silver;
+
+  @include breakpoint(768px) {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 15px;
+    color: $gray;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  .description {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+}

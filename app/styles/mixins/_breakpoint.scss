@@ -1,0 +1,10 @@
+// -------------------------------------------------
+//   Breakpoint
+//     -> Allows to include media queries with ease
+// -------------------------------------------------
+
+@mixin breakpoint($media) {
+  @media only screen and (max-width: $media) {
+    @content;
+  }
+}

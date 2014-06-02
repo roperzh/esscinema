@@ -14,6 +14,7 @@
 
 @import "mixins/border_image";
 @import "mixins/clearfix";
+@import "mixins/breakpoint";
 
 // -------------------------------------
 //   Base
@@ -29,6 +30,7 @@
 
 @import "layouts/fixed_header";
 @import "layouts/container";
+@import "layouts/search_results";
 
 // -------------------------------------
 //   Modules
@@ -38,7 +40,5 @@
 @import "modules/logo";
 @import "modules/search_form";
 @import "modules/search_stats";
-
-// -------------------------------------
-//   States
-// -------------------------------------
+@import "modules/result";
+@import "modules/stars";

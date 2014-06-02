@@ -32,10 +32,11 @@
   }
 
   .stats {
-    @include clearfix();
     display: inline-block;
     margin: 0;
     list-style: none;
+    @include clearfix();
+
 
     .stat {
       float: left;
@@ -45,6 +46,14 @@
       &:last-child {
         border: none;
       }
+    }
+  }
+
+  @include breakpoint(768px) {
+    height: 50px;
+
+    .stats {
+      display: none;
     }
   }
 }

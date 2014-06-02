@@ -1,0 +1,31 @@
+// -------------------------------------------
+//   Search Results
+// -------------------------------------------
+
+.search-results {
+  @include clearfix();
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  img {
+    width: 100%;
+  }
+
+  footer {
+    border-top: 1px solid $silver;
+    padding: 5px 15px;
+  }
+
+  .social {
+    text-align: right;
+
+    i {
+      &:hover {
+        color: $gray;
+      }
+    }
+  }
+}
+
