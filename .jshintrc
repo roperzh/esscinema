@@ -16,5 +16,5 @@
   "strict": false,
   "trailing": true,
   "smarttabs": true,
-  "predef": ["Essential"]
+  "predef": ["Essential", "App", "FB", "console", "doT"]
 }
