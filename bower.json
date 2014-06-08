@@ -2,8 +2,8 @@
   "name": "feed-consumer",
   "private": true,
   "dependencies": {
-    "jquery": "~1.11.0",
-    "essential.js": "~0.4.0"
+    "essential.js": "~0.4.0",
+    "doT": "~1.0.1"
   },
   "devDependencies": {}
 }
