@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>EssCinema</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles/vendor.css"/>
+
+    <link rel="stylesheet" href="styles/main.css"/>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+    <p class="browsehappy">
+      You are using an <strong>outdated</strong> browser.
+      Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      to improve your experience.
+    </p>
+    <![endif]-->
+    <header class="fixed-header horizontal-panel">
+      <div class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="RSSential" class="logo-image">
+          <h1 class="logo-text">
+            EssCinema
+          </h1>
+        </div>
+
+        <form class="search-form" data-behavior="search-form" id="search-form">
+          <input type="text" class="search" placeholder="Search...">
+          <i class="fa fa-search search-icon"></i>
+        </form>
+
+        <nav>
+          <i class="fa fa-bars"></i>
+          <i class="fa fa-github"></i>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container with-content" data-behavior="result-binding">
+    <div id="feed"></div>
+      <div class="search-stats">
+        <i class="fa fa-search"></i>
+        <h3 class="title">Search Results for <span class="name"></span></h3>
+        <ul class="stats">
+          <li class="stat"></li>
+        </ul>
+      </div>
+
+      <ol class="search-results" data-behavior="movie-searcher" data-api-key="3e6c5e745e80f3a7449bf86b75975718">
+      </ol>
+    </div>
+
+    <script src="scripts/vendor.js"></script>
+
+    <script src="scripts/main.js"></script>
+
+    <script type="text/template" id="testTemplate">
+      {{~it :value:index}}
+        <li class="result">
+          {{? value.poster_path }}
+            <img src="http://image.tmdb.org/t/p/w500/{{= value.poster_path }}" alt="">
+          {{??}}
+            <img src="/images/placeholder.png" alt="">
+          {{?}}
+          <article>
+            <header>
+              <h3 class="title">{{= value.title }}</h3>
+              <p class="subtitle">{{= value.release_date}}</p>
+            </header>
+            <p class="description">
+              {{? value.adult}}
+                Adults
+              {{??}}
+                All Public
+              {{?}}
+            </p>
+            <footer>
+              <div class="stars"
+                data-behavior="stars-rating"
+                data-rating="{{= value.vote_average }}">
+                {{~[0,1,2,3,4] :star}}
+                  <i class="fa fa-star" data-index="{{= star}}"></i>
+                {{~}}
+              </div>
+              <div class="social">
+                <i class="fa fa-facebook-square"
+                    data-behavior="facebook-share"
+                    data-share-url="http://image.tmdb.org/t/p/w500{{= value.poster_path }}"></i>
+                <a href="https://twitter.com/share?url=http://image.tmdb.org/t/p/w500{{= value.poster_path }}" data-behavior="twitter-share">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+            </footer>
+          </article>
+        </li>
+      {{~}}
+    </script>
+  </body>
+</html>
