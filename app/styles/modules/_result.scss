@@ -3,9 +3,9 @@
 // -------------------------------------------
 
 .result {
-  float: left;
+  display: inline-block;
   width: 100%;
-  max-width: 241px;
+  max-width: 238px;
   margin: 0 7px 15px 7px;
   border: 1px solid $silver;
   border-radius: 5px;

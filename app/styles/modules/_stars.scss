@@ -5,16 +5,21 @@
 .stars {
   float: left;
 
+  @for $i from 1 through 4 {
+    &.star-#{$i} {
+      .fa-star {
+        &:nth-child(-n+#{$i + 1}) {
+          color: $gold;
+        }
+      }
+    }
+  }
+
   .fa-star {
     color: $silver;
-
-    &.selected {
-      color: $gold;
-    }
 
     &:hover {
       color: $gold;
     }
   }
 }
-

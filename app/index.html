@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>feed consumer</title>
+    <title>EssCinema</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,6 +14,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   </head>
@@ -30,81 +31,97 @@
         <div class="logo">
           <img src="images/logo.jpg" alt="RSSential" class="logo-image">
           <h1 class="logo-text">
-            RSSential
+            EssCinema
           </h1>
         </div>
 
-        <form class="search-form">
+        <form class="search-form" data-behavior="search-form" id="search-form">
           <input type="text" class="search" placeholder="Search...">
           <i class="fa fa-search search-icon"></i>
         </form>
 
         <nav>
           <i class="fa fa-bars"></i>
-          <i class="fa fa-plus"></i>
+          <i class="fa fa-github"></i>
         </nav>
       </div>
     </header>
 
-    <div class="container with-content">
+    <div class="container with-content" data-behavior="result-binding">
+    <div id="feed"></div>
       <div class="search-stats">
         <i class="fa fa-search"></i>
-        <h3 class="title">Search Results for <span>"Animation Movies"</span></h3>
+        <h3 class="title">Search Results for <span class="name"></span></h3>
         <ul class="stats">
-          <li class="stat">10 posts</li>
-          <li class="stat">30 reviews</li>
-          <li class="stat">50 photos</li>
+          <li class="stat"></li>
         </ul>
       </div>
 
-      <ol class="search-results">
-        <li class="result">
-          <img src="http://placehold.it/156x50" alt="">
-          <article>
-            <header>
-              <h3 class="title">Rio - Movie</h3>
-              <p class="subtitle">Movies / Clips</p>
-            </header>
-            <p class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quasi alias voluptatum, quo quia pariatur cum.
-            </p>
-            <footer>
-              <div class="stars">
-                <i class="fa fa-star selected"></i>
-                <i class="fa fa-star selected"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-              </div>
-              <div class="social">
-                <i class="fa fa-facebook-square"></i>
-                <i class="fa fa-retweet">Retrip</i>
-              </div>
-            </footer>
-          </article>
-        </li>
+      <ol class="search-results" data-behavior="movie-searcher" data-api-key="3e6c5e745e80f3a7449bf86b75975718">
       </ol>
     </div>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/essential.js/essential.js"></script>
+    <script src="bower_components/doT/doT.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/main.js -->
+    <script src="scripts/services/starter.js"></script>
+    <script src="scripts/services/ajax.js"></script>
+    <script src="scripts/services/facebook_sdk.js"></script>
+    <script src="scripts/services/analytics_sdk.js"></script>
+    <script src="scripts/behaviors/facebook_share.js"></script>
+    <script src="scripts/behaviors/movie_searcher.js"></script>
+    <script src="scripts/behaviors/search_form.js"></script>
+    <script src="scripts/behaviors/stars_rating.js"></script>
+    <script src="scripts/behaviors/text_binding.js"></script>
+    <script src="scripts/behaviors/twitter_share.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+
+    <script type="text/template" id="testTemplate">
+      {{~it :value:index}}
+        <li class="result">
+          {{? value.poster_path }}
+            <img src="http://image.tmdb.org/t/p/w500/{{= value.poster_path }}" alt="">
+          {{??}}
+            <img src="/images/placeholder.png" alt="">
+          {{?}}
+          <article>
+            <header>
+              <h3 class="title">{{= value.title }}</h3>
+              <p class="subtitle">{{= value.release_date}}</p>
+            </header>
+            <p class="description">
+              {{? value.adult}}
+                Adults
+              {{??}}
+                All Public
+              {{?}}
+            </p>
+            <footer>
+              <div class="stars"
+                data-behavior="stars-rating"
+                data-rating="{{= value.vote_average }}">
+                {{~[0,1,2,3,4] :star}}
+                  <i class="fa fa-star" data-index="{{= star}}"></i>
+                {{~}}
+              </div>
+              <div class="social">
+                <i class="fa fa-facebook-square"
+                    data-behavior="facebook-share"
+                    data-share-url="http://image.tmdb.org/t/p/w500{{= value.poster_path }}"></i>
+                <a href="https://twitter.com/share?url=http://image.tmdb.org/t/p/w500{{= value.poster_path }}" data-behavior="twitter-share">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+            </footer>
+          </article>
+        </li>
+      {{~}}
+    </script>
   </body>
 </html>
