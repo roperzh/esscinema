@@ -11,6 +11,11 @@ App.MovieSearcher = Essential.Behavior.extend({
     this.template = document.getElementById("testTemplate").innerHTML;
     this.compiler = doT.template(this.template);
     this.lazySearch = App.Helper.debounce(this.search, 500);
+    this.changeText({
+      detail: {
+        text: "h"
+      }
+    });
   },
 
   channels: {
