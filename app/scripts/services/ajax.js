@@ -15,7 +15,7 @@ App.Ajax = {
       options.error(request.response);
     };
 
-    request.send();
+    request.send(options.data);
   },
 
   getScript: function(url, callback) {

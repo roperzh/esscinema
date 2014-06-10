@@ -3,18 +3,9 @@
 // -------------------------------------------
 
 .search-results {
-  -webkit-column-width:238px;
-  -moz-column-width:238px;
-  column-width:238px;
-  -webkit-column-count: 4;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    4;
-  -moz-column-gap:      0px;
-  column-count:         4;
-  column-gap:           0px;
-
   @include clearfix();
   position: relative;
+  text-align: center;
   padding: 0;
   margin: 0;
   list-style: none;

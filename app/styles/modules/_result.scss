@@ -4,6 +4,8 @@
 
 .result {
   display: inline-block;
+  // float: left;
+  vertical-align: top;
   width: 100%;
   max-width: 238px;
   margin: 0 7px 15px 7px;
@@ -13,8 +15,9 @@
   color: $silver;
 
   @include breakpoint(768px) {
-    max-width: 100%;
+    max-width: 70%;
     margin: 10px 0;
+    text-align: center;
   }
 
   .title {

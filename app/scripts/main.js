@@ -11,4 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Essential.loadBehaviors({
     application: App
   });
+
+  App.EndReachedChecker.new(window);
 });
+

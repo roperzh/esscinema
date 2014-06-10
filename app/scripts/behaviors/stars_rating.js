@@ -1,6 +1,5 @@
 // -------------------------------------------
 //   Stars rating
-//     -> Simple rating based on stars
 // -------------------------------------------
 
 App.StarsRating = Essential.Behavior.extend({

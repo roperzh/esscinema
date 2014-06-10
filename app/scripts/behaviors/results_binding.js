@@ -1,4 +1,9 @@
-App.ResultBinding = Essential.Behavior.extend({
+// -------------------------------------------
+//   Results Binding
+//     -> Real-time text binding
+// -------------------------------------------
+
+App.ResultsBinding = Essential.Behavior.extend({
 
   channels: {
     "search:textChanged": "setText",

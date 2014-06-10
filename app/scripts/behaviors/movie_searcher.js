@@ -10,23 +10,45 @@ App.MovieSearcher = Essential.Behavior.extend({
     this.baseUrl = "https://api.themoviedb.org/3/search/movie?api_key=" + this.apiKey;
     this.template = document.getElementById("testTemplate").innerHTML;
     this.compiler = doT.template(this.template);
+    this.lazySearch = App.Helper.debounce(this.search, 500);
   },
 
   channels: {
-    "search:textChanged #search-form": "search"
+    "search:textChanged #search-form": "changeText",
+    "end:reached": "loadNextPage"
   },
 
-  search: function(e) {
+  changeText: function(e) {
+    this.page = 1;
+    this.text = e.detail.text;
+    this.results = [];
+    this.lazySearch();
+  },
+
+  loadNextPage: function() {
+    if(this.page >= this.totalPages) {
+      return;
+    }
+    this.page += 1;
+    this.search();
+  },
+
+  search: function() {
     App.Ajax.request({
-      url: this.baseUrl + "&query=" + e.detail.text + "&search_type=ngram",
       method: "GET",
-      success: this.setContents.bind(this)
+      url: this.baseUrl + "&query=" + this.text + "&search_type=ngram" + "&page=" + this.page,
+      success: this.setContents.bind(this),
+      error: function(error) {
+        console.log(error);
+      }
     });
   },
 
   setContents: function(rawResponse) {
     var response = JSON.parse(rawResponse);
-    this.el.innerHTML = this.compiler(response.results);
+    this.results = this.results.concat(response.results)
+    this.el.innerHTML = this.compiler(this.results);
+    this.totalPages = response.total_pages;
 
     Essential.loadBehaviors({
       application: App,
