@@ -1,6 +1,6 @@
 App.EndReachedChecker = Essential.Behavior.extend({
   init: function() {
-    this.lazyEmit = App.Helper.debounce(this.emit, 500);
+    this.lazyEmit = App.Helper.debounce(this.emit, 250);
   },
 
   events: {
